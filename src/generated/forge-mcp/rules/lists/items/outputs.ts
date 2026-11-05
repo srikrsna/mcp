@@ -309,7 +309,7 @@ export const lists_lists$$async$$response: JsonSchema = {
       "type": "object"
     },
     {
-      "$ref": "#/$defs/lists_api-response-collection"
+      "$ref": "#/$defs/lists_api-response-common"
     }
   ]
 };

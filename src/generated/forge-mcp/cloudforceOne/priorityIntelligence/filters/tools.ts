@@ -174,7 +174,8 @@ export const tools: readonly Tool[] = [
                             "contains",
                             "startsWith",
                             "endsWith",
-                            "find"
+                            "find",
+                            "notContains"
                           ],
                           "type": "string"
                         },
@@ -213,7 +214,8 @@ export const tools: readonly Tool[] = [
                         },
                         "op": {
                           "enum": [
-                            "in"
+                            "in",
+                            "notIn"
                           ],
                           "type": "string"
                         },
@@ -280,7 +282,8 @@ export const tools: readonly Tool[] = [
                         },
                         "op": {
                           "enum": [
-                            "in"
+                            "in",
+                            "notIn"
                           ],
                           "type": "string"
                         },
@@ -361,7 +364,8 @@ export const tools: readonly Tool[] = [
                         },
                         "op": {
                           "enum": [
-                            "in"
+                            "in",
+                            "notIn"
                           ],
                           "type": "string"
                         },
@@ -490,6 +494,77 @@ export const tools: readonly Tool[] = [
                   "minItems": 1,
                   "type": "array"
                 },
+                "exclusions": {
+                  "properties": {
+                    "actors": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    },
+                    "attacker_countries": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    },
+                    "categories": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    },
+                    "cves": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    },
+                    "keywords": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 5,
+                      "type": "array"
+                    },
+                    "target_countries": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    },
+                    "target_industries": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    },
+                    "techniques": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "maxItems": 20,
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "actors",
+                    "attacker_countries",
+                    "categories",
+                    "cves",
+                    "keywords",
+                    "target_countries",
+                    "target_industries",
+                    "techniques"
+                  ],
+                  "type": "object"
+                },
                 "indicators": {
                   "items": {
                     "type": "string"
@@ -526,6 +601,7 @@ export const tools: readonly Tool[] = [
                       "no_matching_category",
                       "invalid_keyword",
                       "branch_limit",
+                      "filter_limit",
                       "indicators_not_supported",
                       "no_matching_field"
                     ],
@@ -715,7 +791,8 @@ export const tools: readonly Tool[] = [
                                 "contains",
                                 "startsWith",
                                 "endsWith",
-                                "find"
+                                "find",
+                                "notContains"
                               ],
                               "type": "string"
                             },
@@ -754,7 +831,8 @@ export const tools: readonly Tool[] = [
                             },
                             "op": {
                               "enum": [
-                                "in"
+                                "in",
+                                "notIn"
                               ],
                               "type": "string"
                             },
@@ -821,7 +899,8 @@ export const tools: readonly Tool[] = [
                             },
                             "op": {
                               "enum": [
-                                "in"
+                                "in",
+                                "notIn"
                               ],
                               "type": "string"
                             },
@@ -902,7 +981,8 @@ export const tools: readonly Tool[] = [
                             },
                             "op": {
                               "enum": [
-                                "in"
+                                "in",
+                                "notIn"
                               ],
                               "type": "string"
                             },
@@ -1031,6 +1111,77 @@ export const tools: readonly Tool[] = [
                       "minItems": 1,
                       "type": "array"
                     },
+                    "exclusions": {
+                      "properties": {
+                        "actors": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        },
+                        "attacker_countries": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        },
+                        "categories": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        },
+                        "cves": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        },
+                        "keywords": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 5,
+                          "type": "array"
+                        },
+                        "target_countries": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        },
+                        "target_industries": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        },
+                        "techniques": {
+                          "items": {
+                            "type": "string"
+                          },
+                          "maxItems": 20,
+                          "type": "array"
+                        }
+                      },
+                      "required": [
+                        "actors",
+                        "attacker_countries",
+                        "categories",
+                        "cves",
+                        "keywords",
+                        "target_countries",
+                        "target_industries",
+                        "techniques"
+                      ],
+                      "type": "object"
+                    },
                     "indicators": {
                       "items": {
                         "type": "string"
@@ -1067,6 +1218,7 @@ export const tools: readonly Tool[] = [
                           "no_matching_category",
                           "invalid_keyword",
                           "branch_limit",
+                          "filter_limit",
                           "indicators_not_supported",
                           "no_matching_field"
                         ],

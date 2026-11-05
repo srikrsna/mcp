@@ -673,6 +673,14 @@ export const zones_setting_value: JsonSchema = {
         "on"
       ],
       "type": "string"
+    },
+    {
+      "description": "Value of the zone setting.",
+      "enum": [
+        "off",
+        "on"
+      ],
+      "type": "string"
     }
   ]
 };

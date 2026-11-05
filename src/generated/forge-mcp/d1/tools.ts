@@ -16,7 +16,6 @@ import {
 import {
   d1_batch$$query,
   d1_database$$update$$partial$$request$$body,
-  d1_database$$update$$request$$body,
   d1_params,
   d1_read$$replication$$details$$for$$request,
   d1_single$$query,
@@ -1000,115 +999,6 @@ export const tools: readonly Tool[] = [
     },
     request: (args) => ({
       path: `/accounts/${pathParam(args, "account_id")}/d1/database/${pathParam(args, "database_id")}/undelete`,
-      body: { value: args["body"], mediaTypes: ["application/json"] },
-    }),
-  },
-  {
-    name: "d1_update",
-    title: "Update D1 Database",
-    description: "Update a D1 database's configuration.\n\nPUT /accounts/{account_id}/d1/database/{database_id}",
-    inputSchema: {
-      type: "object",
-      properties: {
-        "body": {
-          "$ref": "#/$defs/d1_database-update-request-body"
-        },
-        "path": {
-          "additionalProperties": false,
-          "properties": {
-            "account_id": {
-              "description": "Account identifier tag.",
-              "type": "string"
-            },
-            "database_id": {
-              "description": "D1 database identifier (UUID).",
-              "type": "string"
-            }
-          },
-          "required": [
-            "account_id",
-            "database_id"
-          ],
-          "type": "object"
-        }
-      },
-      required: [
-        "path",
-        "body"
-      ],
-      additionalProperties: false,
-      $defs: {
-        "d1_database-update-request-body": d1_database$$update$$request$$body,
-        "d1_read-replication-details-for-request": d1_read$$replication$$details$$for$$request,
-      },
-    },
-    outputSchema: {
-      "allOf": [
-        {
-          "$ref": "#/$defs/d1_api-response-common"
-        },
-        {
-          "properties": {
-            "result": {
-              "$ref": "#/$defs/d1_database-details-response"
-            }
-          },
-          "type": "object"
-        }
-      ],
-      $defs: {
-        "d1_api-response-common": d1_api$$response$$common,
-        "d1_database-details-response": d1_database$$details$$response,
-        "d1_messages": d1_messages,
-        "d1_read-replication-details-for-response": d1_read$$replication$$details$$for$$response,
-      },
-    },
-    annotations: {
-      "destructiveHint": true,
-      "idempotentHint": true,
-      "openWorldHint": true,
-      "readOnlyHint": false,
-      "title": "Update D1 Database"
-    },
-    method: "PUT",
-    path: "/accounts/{account_id}/d1/database/{database_id}",
-    extensions: {
-      "x-api-token-group": [
-        "D1 Write"
-      ],
-      "x-forge-epilogue": "This command acts on remote D1 Databases."
-    },
-    responses: {
-      schemas: {
-        "200": {
-          "allOf": [
-            {
-              "$ref": "#/$defs/d1_api-response-common"
-            },
-            {
-              "properties": {
-                "result": {
-                  "$ref": "#/$defs/d1_database-details-response"
-                }
-              },
-              "type": "object"
-            }
-          ]
-        },
-        "4XX": {
-          "$ref": "#/$defs/d1_api-response-common-failure"
-        }
-      },
-      $defs: {
-        "d1_api-response-common": d1_api$$response$$common,
-        "d1_api-response-common-failure": d1_api$$response$$common$$failure,
-        "d1_database-details-response": d1_database$$details$$response,
-        "d1_messages": d1_messages,
-        "d1_read-replication-details-for-response": d1_read$$replication$$details$$for$$response,
-      },
-    },
-    request: (args) => ({
-      path: `/accounts/${pathParam(args, "account_id")}/d1/database/${pathParam(args, "database_id")}`,
       body: { value: args["body"], mediaTypes: ["application/json"] },
     }),
   },
